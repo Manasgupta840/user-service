@@ -18,6 +18,7 @@
     <jdk.version>11</jdk.version>
     <release.version>11</release.version>
     <micronaut.version>3.9.0</micronaut.version>
+    <micronaut.data.version>3.7.3</micronaut.data.version>
     <micronaut.runtime>netty</micronaut.runtime>
     <exec.mainClass>com.practice.Application</exec.mainClass>
   </properties>
@@ -42,22 +43,43 @@
     </dependency>
     <dependency>
       <groupId>io.micronaut</groupId>
-      <artifactId>micronaut-http-client</artifactId>
-      <scope>compile</scope>
-    </dependency>
-    <dependency>
-      <groupId>io.micronaut</groupId>
       <artifactId>micronaut-http-server-netty</artifactId>
       <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>io.micronaut</groupId>
-      <artifactId>micronaut-jackson-databind</artifactId>
+      <artifactId>micronaut-http-client</artifactId>
       <scope>compile</scope>
     </dependency>
     <dependency>
-      <groupId>jakarta.annotation</groupId>
-      <artifactId>jakarta.annotation-api</artifactId>
+      <groupId>io.micronaut</groupId>
+      <artifactId>micronaut-runtime</artifactId>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>javax.annotation</groupId>
+      <artifactId>javax.annotation-api</artifactId>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.18.26</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.micronaut.data</groupId>
+      <artifactId>micronaut-data-hibernate-jpa</artifactId>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.micronaut.sql</groupId>
+      <artifactId>micronaut-jdbc-hikari</artifactId>
       <scope>compile</scope>
     </dependency>
     <dependency>
@@ -66,14 +88,23 @@
       <scope>runtime</scope>
     </dependency>
     <dependency>
-      <groupId>org.projectlombok</groupId>
-      <artifactId>lombok</artifactId>
-      <scope>provided</scope>
+      <groupId>io.micronaut.flyway</groupId>
+      <artifactId>micronaut-flyway</artifactId>
+      <scope>compile</scope>
     </dependency>
     <dependency>
-      <groupId>io.micronaut.test</groupId>
-      <artifactId>micronaut-test-junit5</artifactId>
-      <scope>test</scope>
+      <groupId>org.flywaydb</groupId>
+      <artifactId>flyway-mysql</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>net.javacrumbs.shedlock</groupId>
+      <artifactId>shedlock-micronaut</artifactId>
+      <version>4.34.0</version>
+    </dependency>
+    <dependency>
+      <groupId>net.javacrumbs.shedlock</groupId>
+      <artifactId>shedlock-provider-jdbc-micronaut</artifactId>
+      <version>4.34.0</version>
     </dependency>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
@@ -83,6 +114,11 @@
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-engine</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.micronaut.test</groupId>
+      <artifactId>micronaut-test-junit5</artifactId>
       <scope>test</scope>
     </dependency>
   </dependencies>
@@ -105,7 +141,7 @@
             <path>
               <groupId>org.projectlombok</groupId>
               <artifactId>lombok</artifactId>
-              <version>${lombok.version}</version>
+              <version>1.16.12</version>
             </path>
             <path>
               <groupId>io.micronaut</groupId>
@@ -114,18 +150,13 @@
             </path>
             <path>
               <groupId>io.micronaut</groupId>
-              <artifactId>micronaut-graal</artifactId>
-              <version>${micronaut.version}</version>
-            </path>
-            <path>
-              <groupId>io.micronaut</groupId>
-              <artifactId>micronaut-http-validation</artifactId>
-              <version>${micronaut.version}</version>
-            </path>
-            <path>
-              <groupId>io.micronaut</groupId>
               <artifactId>micronaut-validation</artifactId>
               <version>${micronaut.version}</version>
+            </path>
+            <path>
+              <groupId>io.micronaut.data</groupId>
+              <artifactId>micronaut-data-processor</artifactId>
+              <version>${micronaut.data.version}</version>
             </path>
           </annotationProcessorPaths>
           <compilerArgs>
